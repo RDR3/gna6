@@ -1,8 +1,10 @@
 import java.sql.*;
 //comment
 //comment
+//comment
 import java.util.Scanner;
 
+//comment
 //comment
 
 public class SqlInjectionDemo {
@@ -12,9 +14,9 @@ public class SqlInjectionDemo {
   //comment
   //cpmment
   // JDBC URL for SQLite (uses a file-based database)
-  private static final String DB_URL6 = "jdbc:sqlite:test.db";
-  private static final String DB_URL66 = "jdbc:sqlite:test.db";
-  private static final String DB_URL666 = "jdbc:sqlite:test.db";
+  private static final String db_url_url6 = "jdbc:sqlite:test.db";
+  private static final String db_url_url66 = "jdbc:sqlite:test.db";
+  private static final String db_url_url666 = "jdbc:sqlite:test.db";
 
     public static void main(String[] args) {
         createUsersTable();
@@ -28,7 +30,7 @@ public class SqlInjectionDemo {
         // ⚠️ VULNERABLE CODE - SQL Injection possible here!
         String query = "SELECT * FROM users WHERE username = '" + userInput + "'";
 
-        try (Connection conn = DriverManager.getConnection(DB_URL6);
+        try (Connection conn = DriverManager.getConnection(db_url_url6);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
 
@@ -48,7 +50,7 @@ public class SqlInjectionDemo {
                      "username TEXT NOT NULL UNIQUE," +
                      "password TEXT NOT NULL)";
 
-        try (Connection conn = DriverManager.getConnection(DB_URL6);
+        try (Connection conn = DriverManager.getConnection(db_url_url6);
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         } catch (SQLException e) {
